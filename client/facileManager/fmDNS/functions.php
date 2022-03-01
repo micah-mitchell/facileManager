@@ -562,9 +562,13 @@ function runRndcActions($rndc_actions = array()) {
 	if (!is_array($rndc_actions)) $rndc_actions = array($rndc_actions);
 	
 	$rndc = findProgram('rndc');
-	
+
+	if (file_exists('/etc/bind/named.conf.keys')) {
+	    $rndc_key = "-k /etc/bind/named.conf.keys";
+	}
+
 	foreach ($rndc_actions as $action) {
-		$last_line = system("$rndc $action 2>&1", $retval);
+		$last_line = system("$rndc $rndc_key $action 2>&1", $retval);
 		if ($retval) {
 			return processReloadFailure($last_line);
 		}
