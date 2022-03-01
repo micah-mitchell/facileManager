@@ -1,3 +1,10 @@
+4.2.1 (2022-02-28)
+==================
+* Client - [improvement] Added support for Debian detection when running in limited enviroment
+           like Docker wher lsb_release may not exist.
+* Client - [improvement] Added new flag to client config to specify client hostname that the 
+           client reports back to the server.
+
 4.2.0 (2022-01-06)
 ==================
 * Server - [improvement] Updated max_input_vars error message to include additional methods
