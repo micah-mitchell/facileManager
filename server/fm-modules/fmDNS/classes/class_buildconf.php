@@ -124,6 +124,7 @@ class fm_module_buildconf extends fm_shared_module_buildconf {
 
 			if ($keys) {
 				$data->files[dirname($server_config_file) . '/named.conf.keys'] = array('contents' => $key_config, 'mode' => 0400);
+				$data->files[dirname($server_config_file) . '/rndc.key'] = array('contents' => $key_config, 'mode' => 0400);
 			
 				$config .= "include \"" . dirname($server_config_file) . "/named.conf.keys\";\n\n";
 			}
